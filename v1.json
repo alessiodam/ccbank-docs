@@ -105,52 +105,6 @@
         }
       }
     },
-    "/register": {
-      "post": {
-        "summary": "User registration",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string"
-                  },
-                  "pin": {
-                    "type": "string"
-                  }
-                },
-                "required": ["username", "pin"]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful registration",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean",
-                      "example": true
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Registration successful"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/change-pin": {
       "post": {
         "summary": "Change user PIN",
@@ -336,6 +290,42 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/latest-client": {
+      "get": {
+        "summary": "Redirect to the latest version of the ComputerCraft client script",
+        "responses": {
+          "302": {
+            "description": "Redirect",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Redirecting to the latest client script..."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/latest-pocket-client": {
+      "get": {
+        "summary": "Redirect to the latest version of the ComputerCraft pocket client script",
+        "responses": {
+          "302": {
+            "description": "Redirect",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Redirecting to the latest pocket client script..."
                 }
               }
             }
