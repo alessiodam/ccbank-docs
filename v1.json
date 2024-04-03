@@ -297,6 +297,53 @@
         }
       }
     },
+    "/transactions/info/{id}": {
+      "get": {
+        "summary": "Get information about a specific transaction",
+        "security": [
+          {
+            "SessionToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the transaction to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "from_user": {
+                      "type": "string"
+                    },
+                    "to_user": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "id": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/latest-client": {
       "get": {
         "summary": "Redirect to the latest version of the ComputerCraft client script",
