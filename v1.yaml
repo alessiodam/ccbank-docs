@@ -403,8 +403,26 @@ paths:
                   message:
                     type: string
                     example: Transaction created successfully
-                  transaction_id:
-                    type: integer
+                  details:
+                    type: object
+                    properties:
+                      subaccount_id:
+                        type: integer
+                      id:
+                        type: integer
+                      amount:
+                        type: integer
+                      note:
+                        type: string
+                      date:
+                        type: string
+                        format: date-time
+                    example:
+                      subaccount_id: 123
+                      id: 456
+                      amount: 100
+                      note: "Transaction note"
+                      date: "2024-04-04T12:00:00Z"
   /v1/subaccounts/transactions/list/{subaccount_id}:
     get:
       summary: List transactions for a subaccount
