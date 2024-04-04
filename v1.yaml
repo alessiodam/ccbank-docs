@@ -10,6 +10,8 @@ paths:
   /version:
     get:
       summary: Get API version
+      tags:
+        - Miscellaneous
       responses:
         '200':
           description: Successful operation
@@ -24,6 +26,8 @@ paths:
   /login:
     post:
       summary: User login
+      tags:
+        - User
       requestBody:
         required: true
         content:
@@ -36,7 +40,7 @@ paths:
                 pin:
                   type: string
               required:
-                - username
+                - Username
                 - pin
       responses:
         '200':
@@ -70,6 +74,8 @@ paths:
                     example: Invalid username or PIN
   /change-pin:
     post:
+      tags:
+        - User
       summary: Change user PIN
       security:
         - SessionToken: []
@@ -101,6 +107,8 @@ paths:
   /balance:
     get:
       summary: Get user balance
+      tags:
+        - User
       security:
         - SessionToken: []
       responses:
@@ -116,6 +124,8 @@ paths:
                     example: 100.0
   /transactions/new:
     post:
+      tags:
+        - Transactions      
       summary: Create new transaction
       security:
         - SessionToken: []
@@ -131,7 +141,7 @@ paths:
                 amount:
                   type: number
               required:
-                - username
+                - Username
                 - amount
       responses:
         '202':
@@ -153,6 +163,8 @@ paths:
   /transactions/list:
     get:
       summary: List user transactions
+      tags:
+        - Transactions
       security:
         - SessionToken: []
       parameters:
@@ -191,6 +203,8 @@ paths:
   /transactions/info/{id}:
     get:
       summary: Get information about a specific transaction
+      tags:
+        - Transactions
       security:
         - SessionToken: []
       parameters:
@@ -219,6 +233,8 @@ paths:
   /latest-client:
     get:
       summary: Redirect to the latest version of the ComputerCraft client script
+      tags:
+        - Redirects
       responses:
         '302':
           description: Redirect
@@ -230,6 +246,8 @@ paths:
   /latest-pocket-client:
     get:
       summary: Redirect to the latest version of the ComputerCraft pocket client script
+      tags:
+        - Redirects
       responses:
         '302':
           description: Redirect
@@ -241,6 +259,8 @@ paths:
   /v1/subaccounts/create:
     post:
       summary: Create new subaccount
+      tags:
+        - SubAccounts
       requestBody:
         required: true
         content:
@@ -271,6 +291,8 @@ paths:
   /v1/subaccounts/list:
     get:
       summary: List user subaccounts
+      tags:
+        - SubAccounts
       responses:
         '200':
           description: Successful operation
@@ -290,6 +312,8 @@ paths:
   /v1/subaccounts/get/{subaccount_id}:
     get:
       summary: Get information about a specific subaccount
+      tags:
+        - SubAccounts
       parameters:
         - name: subaccount_id
           in: path
@@ -314,6 +338,8 @@ paths:
   /v1/subaccounts/delete/{subaccount_id}:
     delete:
       summary: Delete a subaccount
+      tags:
+        - SubAccounts
       parameters:
         - name: subaccount_id
           in: path
@@ -338,6 +364,8 @@ paths:
   /v1/subaccounts/update/{subaccount_id}:
     post:
       summary: Update a subaccount
+      tags:
+        - SubAccounts
       parameters:
         - name: subaccount_id
           in: path
@@ -373,6 +401,8 @@ paths:
   /v1/subaccounts/transactions/create:
     post:
       summary: Create new transaction for a subaccount
+      tags:
+        - SubAccount Transactions
       requestBody:
         required: true
         content:
@@ -426,6 +456,8 @@ paths:
   /v1/subaccounts/transactions/list/{subaccount_id}:
     get:
       summary: List transactions for a subaccount
+      tags:
+        - SubAccount Transactions
       parameters:
         - name: subaccount_id
           in: path
@@ -454,6 +486,8 @@ paths:
   /v1/subaccounts/transactions/count/{subaccount_id}:
     get:
       summary: Get count of transactions for a subaccount
+      tags:
+        - SubAccount Transactions
       parameters:
         - name: subaccount_id
           in: path
@@ -474,6 +508,8 @@ paths:
   /v1/subaccounts/transactions/info/{subaccount_id}/{transaction_id}:
     get:
       summary: Get information about a specific transaction for a subaccount
+      tags:
+        - SubAccount Transactions
       parameters:
         - name: subaccount_id
           in: path
