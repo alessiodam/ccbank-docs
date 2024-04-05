@@ -200,6 +200,25 @@ paths:
                       type: number
                     id:
                       type: integer
+  /transaction/count/:
+    get:
+      summary: Get Transaction Count
+      description: Retrieve the count of transactions for the authenticated user.
+      tags:
+        - Transactions
+      security:
+        - SessionToken: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: Number of transactions
   /transactions/info/{id}:
     get:
       summary: Get information about a specific transaction
