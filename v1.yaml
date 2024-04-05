@@ -200,7 +200,7 @@ paths:
                       type: number
                     id:
                       type: integer
-  /transaction/count/:
+  /transactions/count:
     get:
       summary: Get Transaction Count
       description: Retrieve the count of transactions for the authenticated user.
