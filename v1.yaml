@@ -492,6 +492,12 @@ paths:
       tags:
         - SubAccount Transactions
       parameters:
+        - name: subaccount_id
+          in: path
+          description: ID of the subaccount
+          required: true
+          schema:
+            type: string
         - name: per_page
           in: query
           description: Number of transactions per page
